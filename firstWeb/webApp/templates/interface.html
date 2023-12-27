@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title {% block title %}>Data Management App {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %} Interface {% endblock %}</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">1. Home</a></li>
+                <li><a href="{% url 'insertData' %}">2. Insertar Datos</a></li>
+                <li><a href="{% url 'search' %}">3. Buscar</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+</body>
+</html>

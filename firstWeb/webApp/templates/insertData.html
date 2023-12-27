@@ -1,0 +1,17 @@
+{% extends '/interface.html' %}
+
+{% block title %} Insertar Datos - {{block.super}}{% endblock %}
+
+{% block header %}Insertar Datos{% endblock %}
+
+{% block content %}
+    <h2> Data Insert Form!</h2>
+    <form method="post" action="{% url 'insertData' %}">
+        {% csrf_token %}
+        {{ personaForm.as_p}}
+        {{ empresaForm.as_p}}
+        {{ productoForm.as_p}}
+        <button type="submit">Save </button>
+    </form>
+
+{% endblock %}

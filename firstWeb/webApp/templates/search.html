@@ -1,0 +1,15 @@
+{% extends '/interface.html' %}
+
+{% block title %} Search - {{block.super}}{% endblock %}
+
+{% block header %}Search Data{% endblock %}
+
+{% block content %}
+    <h2> Data Search Form!</h2>
+    <form method="post" action="{% url 'search' %}">
+        {% csrf_token %}
+        
+        <button type="submit">Search </button>
+    </form>
+
+{% endblock %}
