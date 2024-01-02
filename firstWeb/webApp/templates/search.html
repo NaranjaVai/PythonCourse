@@ -8,8 +8,36 @@
     <h2> Data Search Form!</h2>
     <form method="post" action="{% url 'search' %}">
         {% csrf_token %}
-        
+        <label for="wordSearch"> Buscar:</label>
+        <input type="text" name="wordSearch" id="wordSearch" required>
         <button type="submit">Search </button>
     </form>
+
+{% if personas %}
+    <h2> Resultado de Personas :</h2>
+    <ul>
+        {% for persona in personas %}
+        <li>{{persona.name}} - ({{persona.edad}})</li>
+        {% endfor %}
+    </ul>    
+{% endif %}    
+
+{% if empresas %}
+    <h2> Resultado de Empresas :</h2>
+    <ul>
+        {% for empresa in empresas %}
+        <li>{{empresa.name}} - ({{empresa.direccion}})</li>
+        {% endfor %}
+    </ul>    
+{% endif %} 
+
+{% if productos %}
+    <h2> Resultado de Productos :</h2>
+    <ul>
+        {% for producto in productos %}
+        <li>{{producto.name}} - ({{producto.price}})</li>
+        {% endfor %}
+    </ul>    
+{% endif %} 
 
 {% endblock %}

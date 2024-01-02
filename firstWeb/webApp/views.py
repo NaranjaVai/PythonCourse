@@ -27,10 +27,21 @@ def insertData (request):
 
     return render(request, 'insertData.html', {'personaForm': personaForm, 'empresaForm': empresaForm, 'productoForm': productoForm})
 
-""" def search(request):
+def search(request):
+    people = None
+    businesses = None
+    products = None
+
     if request.method == 'POST':
-
-
-    return render(request, 'search.html') """
+        wordSearch = request.POST.get("wordSearch,''")
+        people = Persona.objects.filter(nombre__icontains= wordSearch)
+        businesses = Empresa.objects.filter(nombre__icontains= wordSearch)
+        products = Producto.objects.filter(nombre__contains= wordSearch)
+    
+    return render(request, 'search.html',{
+        'personas' : people,
+        'empresas' : businesses,
+        'productos' : products
+    })
 
 
